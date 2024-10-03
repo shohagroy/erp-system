@@ -34,7 +34,7 @@ const LoginPage: React.FC = () => {
       //   );
       // }
     } catch (error) {
-      // console.log(error);
+      console.log(error);
     }
   };
   return (
@@ -42,77 +42,107 @@ const LoginPage: React.FC = () => {
       sx={{
         width: "100%",
         height: "100vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
       }}
     >
-      <Paper
+      <Box
         sx={{
-          padding: "2rem",
-          boxShadow: { xs: "none", md: "none" },
+          width: "100%",
+          height: "90vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
-        <Image
-          src={images?.imperialLogo}
-          height={100}
-          width={300}
-          alt="logo"
-          layout="intrinsic"
-        />
-        <Divider
+        <Paper
           sx={{
-            marginTop: "0.2rem",
-            marginBottom: "2rem",
+            padding: "2rem",
+            boxShadow: { xs: "none", md: "none" },
           }}
-        />
-
-        <FormProvaider
-          submitHandlar={onSubmit}
-          initialValues={{ username: "", password: "" }}
-          validationSchema={validateSchema}
         >
-          <Box marginTop={"20px"}>
-            <FormInputField
-              name="username"
-              label="Username"
-              required
-              placeholder="Username"
-            />
-          </Box>
+          <Image
+            src={images?.imperialLogo}
+            height={100}
+            width={300}
+            alt="logo"
+            layout="intrinsic"
+          />
+          <Divider
+            sx={{
+              marginTop: "0.2rem",
+              marginBottom: "2rem",
+            }}
+          />
 
-          <Box marginTop={"20px"}>
-            <FormInputField
-              type={IInputType.PASSWORD}
-              name="password"
-              label="Password"
-              required
-              placeholder="********"
-            />
+          <FormProvaider
+            submitHandlar={onSubmit}
+            initialValues={{ username: "", password: "" }}
+            validationSchema={validateSchema}
+          >
+            <Box marginTop={"20px"}>
+              <FormInputField
+                name="username"
+                label="Username"
+                required
+                placeholder="Username"
+              />
+            </Box>
 
-            <Box
-              sx={{
-                width: "100%",
-                marginTop: "2rem",
-                display: "flex",
-                justifyContent: "center",
-              }}
-            >
-              <Button
-                type="submit"
-                variant="contained"
+            <Box marginTop={"20px"}>
+              <FormInputField
+                type={IInputType.PASSWORD}
+                name="password"
+                label="Password"
+                required
+                placeholder="********"
+              />
+
+              <Box
                 sx={{
-                  textTransform: "none",
-                  width: "150px",
-                  height: "40px",
+                  width: "100%",
+                  marginTop: "2rem",
+                  display: "flex",
+                  justifyContent: "center",
                 }}
               >
-                Login
-              </Button>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  sx={{
+                    textTransform: "none",
+                    width: "150px",
+                    height: "40px",
+                  }}
+                >
+                  Login
+                </Button>
+              </Box>
             </Box>
-          </Box>
-        </FormProvaider>
-      </Paper>
+          </FormProvaider>
+        </Paper>
+      </Box>
+      <Box
+        sx={{
+          width: "100%",
+          height: "10vh",
+          bgcolor: "gray",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column",
+          padding: "2rem",
+        }}
+      >
+        <Typography
+          sx={{
+            color: "white",
+            fontWeight: 600,
+            fontSize: "22px",
+          }}
+        >
+          ERP-System
+        </Typography>
+        <Typography sx={{ color: "white" }}>Version- 1.0.0</Typography>
+      </Box>
     </Box>
   );
 };
