@@ -42,6 +42,9 @@ const LoginPage: React.FC = () => {
       sx={{
         width: "100%",
         height: "100vh",
+        backgroundImage: `url(${images?.LoginPageBG.src})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
     >
       <Box
@@ -62,7 +65,7 @@ const LoginPage: React.FC = () => {
           <Image
             src={images?.imperialLogo}
             height={100}
-            width={300}
+            width={250}
             alt="logo"
             layout="intrinsic"
           />
@@ -124,19 +127,19 @@ const LoginPage: React.FC = () => {
         sx={{
           width: "100%",
           height: "10vh",
-          bgcolor: "gray",
+          bgcolor: "black",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
-          padding: "2rem",
+          padding: "1.5rem",
         }}
       >
         <Typography
           sx={{
             color: "white",
             fontWeight: 600,
-            fontSize: "22px",
+            fontSize: "18px",
           }}
         >
           ERP-System
