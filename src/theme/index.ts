@@ -48,6 +48,9 @@ declare module "@mui/material/styles" {
       darkBluishBlack?: string;
       orange?: string;
       backGray?: string;
+
+      // new start
+      primaryColor?: string;
     };
   }
   // allow configuration using `createTheme`
@@ -97,6 +100,9 @@ declare module "@mui/material/styles" {
       darkBluishBlack?: string;
       orange?: string;
       backGray?: string;
+
+      // new start
+      primaryColor?: string;
     };
   }
 }
@@ -158,6 +164,9 @@ const purplishBlue = "#3D336D";
 const darkBluishBlack = "#3D336D";
 const silverGray = "#e8e8e8";
 const orange = "#F7993B";
+
+// new start
+const primaryColor = "#4D7496";
 
 const theme = createTheme({
   palette: {
@@ -280,6 +289,9 @@ const theme = createTheme({
     darkBluishBlack,
     silverGray,
     orange,
+
+    // new start
+    primaryColor,
   },
 });
 
