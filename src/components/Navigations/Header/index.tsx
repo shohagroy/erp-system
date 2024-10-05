@@ -2,7 +2,7 @@
 
 import theme from "@/theme";
 import { Box, IconButton, Stack, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React from "react";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
@@ -13,12 +13,11 @@ import Image from "next/image";
 import { images } from "@/assets/images";
 
 interface IProps {
-  none: string;
+  setOpenAside: React.Dispatch<React.SetStateAction<boolean>>;
+  openAside: boolean;
 }
 
-const Header: React.FC<IProps> = () => {
-  const [openAside, setOpenAside] = useState(true);
-
+const Header: React.FC<IProps> = ({ setOpenAside, openAside }) => {
   return (
     <Box sx={{ bgcolor: theme?.colorConstants?.primaryColor }}>
       <Box
