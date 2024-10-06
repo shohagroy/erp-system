@@ -168,7 +168,8 @@ const AsideNavigation: React.FC<IProps> = ({ path }) => {
     },
   ];
 
-  const selectedLinks = navigationLinks?.find((item) => item?.path === path);
+  const selectedLinks =
+    navigationLinks?.find((item) => item?.path === path) ?? navigationLinks[0];
 
   return (
     <Box>
