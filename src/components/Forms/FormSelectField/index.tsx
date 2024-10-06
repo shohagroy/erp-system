@@ -14,7 +14,7 @@ import React from "react";
 
 interface ISelect {
   name: string;
-  options: { label: string; value: any }[];
+  options: { label: string; value: string | number }[];
   placeholder?: string;
   label?: string;
   disableClearable?: boolean;

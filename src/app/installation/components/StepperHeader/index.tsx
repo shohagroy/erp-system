@@ -24,9 +24,7 @@ const StepperHeader: React.FC<StepperHeaderProps> = ({
 
   const location = usePathname();
   const formStepHandlar = (step: number): void => {
-    router.push(`${location}?step=${step}`, {
-      replace: true,
-    } as any);
+    router.push(`${location}?step=${step}`);
     setStepFn(step);
   };
 

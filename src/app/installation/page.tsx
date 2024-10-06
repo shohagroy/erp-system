@@ -50,6 +50,7 @@ const Installation = () => {
   const defaultValues = {};
 
   const formSubmitHandler = (values: FormikValues): void => {
+    console.log(values);
     if (activeStep !== formSteps.length - 1) {
       setActiveStep(activeStep + 1);
       router.push(`/installation?step=${activeStep + 1}`);
@@ -106,7 +107,6 @@ const Installation = () => {
           <Formik
             innerRef={formRef}
             onSubmit={(values, formikHelpers) => {
-              console.log("submit");
               formSubmitHandler(values);
               formikHelpers?.resetForm();
               void formikHelpers?.setValues(values);
@@ -118,7 +118,7 @@ const Installation = () => {
               //   }
               // }
             }}
-            initialValues={{}}
+            initialValues={defaultValues}
             // validationSchema={validationSchema}
           >
             {() => (
