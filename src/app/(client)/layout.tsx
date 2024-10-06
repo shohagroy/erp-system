@@ -22,7 +22,7 @@ const MainLayout: React.FC<LayoutProps> = ({ children }) => {
       }}
     >
       <Header openAside={openAside} setOpenAside={setOpenAside} />
-      <Aside>{children}</Aside>
+      <Aside openAside={openAside}>{children}</Aside>
     </Box>
   );
 };
