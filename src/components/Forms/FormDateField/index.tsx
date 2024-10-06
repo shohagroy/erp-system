@@ -5,8 +5,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { Field, FieldProps } from "formik";
 import dayjs from "dayjs";
-import theme from "@/themes";
-// import theme from "../../../../../Theme";
+import theme from "@/theme";
 
 interface IDate {
   name: string;

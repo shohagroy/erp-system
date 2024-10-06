@@ -32,9 +32,6 @@ const FormInputField: React.FC<IInput> = ({
   errorMessage,
   variant,
 }) => {
-  console.log(variant);
-  console.log("variant");
-
   return (
     <Box
       maxWidth={"500px"}
