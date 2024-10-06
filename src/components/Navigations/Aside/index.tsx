@@ -3,7 +3,10 @@
 import theme from "@/theme";
 import { Box, Grid, Typography } from "@mui/material";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 import React from "react";
+import AsideNavigation from "./components/AsideNavigation";
 
 interface IProps {
   children: React.ReactNode;
@@ -11,6 +14,8 @@ interface IProps {
 }
 
 const Aside: React.FC<IProps> = ({ children, openAside }) => {
+  const pathName = usePathname();
+
   const navigationItems = [
     {
       name: "Sales",
@@ -18,19 +23,19 @@ const Aside: React.FC<IProps> = ({ children, openAside }) => {
       link: "/sales",
     },
     {
-      name: "Item & Inventory",
-      icon: null,
-      link: "/inventory",
-    },
-    {
       name: "Purchase",
       icon: null,
       link: "/purchase",
     },
     {
+      name: "Item & Inventory",
+      icon: null,
+      link: "/inventory",
+    },
+    {
       name: "Banking & Ledger",
       icon: null,
-      link: "/sales",
+      link: "/ledger",
     },
     {
       name: "Setup",
@@ -43,35 +48,52 @@ const Aside: React.FC<IProps> = ({ children, openAside }) => {
     <Box>
       <Box
         sx={{
-          bgcolor: "blue",
           width: "200px",
           position: "fixed",
           left: openAside ? "0" : "-200px",
-          marginY: "0.5rem",
           height: "100vh",
-          padding: "1rem",
           transition: "all 0.3s ease",
         }}
       >
-        menu
+        <AsideNavigation path={pathName} />
       </Box>
       <Box
         sx={{
           marginLeft: openAside ? "200px" : "0",
           borderBottom: `1px solid ${theme.colorConstants?.borderColor}`,
-          paddingX: "2rem",
           transition: "all 0.3s ease",
         }}
       >
-        <Grid container spacing={1} sx={{}}>
+        <Grid container>
           {navigationItems?.map((item, i) => {
             return (
               <Grid key={i} item xs={2.4}>
-                <Link href={item?.link}>
+                <Link
+                  href={item?.link}
+                  style={{
+                    textDecoration: "none",
+                  }}
+                >
                   <Typography
                     sx={{
                       textAlign: "center",
                       padding: "0.5rem",
+                      transition: "all 0.3s ease",
+                      bgcolor:
+                        pathName === item?.link
+                          ? theme?.colorConstants?.darkGray
+                          : "transparent",
+                      fontWeight: pathName === item?.link ? "600" : "500",
+                      color:
+                        pathName === item?.link
+                          ? "white"
+                          : theme?.colorConstants?.darkGray,
+
+                      "&:hover": {
+                        bgcolor: theme?.colorConstants?.darkGray,
+                        fontWeight: "600",
+                        color: "white",
+                      },
                     }}
                   >
                     {item?.name}
