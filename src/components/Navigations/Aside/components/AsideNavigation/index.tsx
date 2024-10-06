@@ -214,7 +214,6 @@ const AsideNavigation: React.FC<IProps> = ({ path }) => {
               </Typography>
 
               {item?.links?.map((link, i) => {
-                console.log(link);
                 return (
                   <Button
                     key={i}

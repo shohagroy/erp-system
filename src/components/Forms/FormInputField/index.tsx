@@ -18,6 +18,7 @@ interface IInput {
   inline?: boolean;
   required?: boolean;
   errorMessage?: boolean;
+  variant?: "standard" | "filled" | "outlined";
 }
 
 const FormInputField: React.FC<IInput> = ({
@@ -29,48 +30,69 @@ const FormInputField: React.FC<IInput> = ({
   inline,
   required,
   errorMessage,
+  variant,
 }) => {
+  console.log(variant);
+  console.log("variant");
+
   return (
     <Box
       maxWidth={"500px"}
       display={"flex"}
       flexDirection={{ xs: "column", md: inline ?? false ? "row" : "column" }}
     >
-      <Typography
-        variant="body1"
-        marginBottom={inline ?? false ? "0px" : "10px"}
-        paddingY={inline ?? false ? "15px" : "0px"}
-        sx={{
-          fontWeight: 500,
-          width: "200px",
-        }}
-      >
-        {label ?? label}
-      </Typography>
+      {variant !== "standard" && (
+        <Typography
+          variant="body1"
+          marginBottom={inline ?? false ? "0px" : "10px"}
+          paddingY={inline ?? false ? "15px" : "0px"}
+          sx={{
+            fontWeight: 500,
+            width: "200px",
+          }}
+        >
+          {label ?? label}
+        </Typography>
+      )}
 
       <Field name={name} type={type}>
-        {({ field, meta }: FieldProps) => (
-          <TextField
-            size="small"
-            {...field}
-            type={type}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">{icon}</InputAdornment>
-              ),
-            }}
-            sx={{
-              width: "100%",
-              fontSize: "14px",
-              fontWeight: 500,
-            }}
-            required={required}
-            variant="outlined"
-            placeholder={placeholder}
-            error={meta.touched && Boolean(meta.error)}
-            helperText={errorMessage && meta.touched && meta.error}
-          />
-        )}
+        {({ field, meta }: FieldProps) => {
+          return (
+            // <TextField
+            //   // label={variant === "standard" ? label : ""}
+            //   label="company name"
+            //   variant="standard"
+            //   size="small"
+            //   type="text"
+            //   sx={{
+            //     width: "100%",
+            //     fontSize: "14px",
+            //     fontWeight: 500,
+            //   }}
+            // />
+            <TextField
+              label={variant === "standard" ? label : ""}
+              size="small"
+              {...field}
+              type={type}
+              // InputProps={{
+              //   startAdornment: (
+              //     <InputAdornment position="start">{icon}</InputAdornment>
+              //   ),
+              // }}
+              sx={{
+                width: "100%",
+                fontSize: "14px",
+                fontWeight: 500,
+              }}
+              required={required}
+              variant={variant ?? "outlined"}
+              placeholder={placeholder}
+              error={meta.touched && Boolean(meta.error)}
+              helperText={errorMessage && meta.touched && meta.error}
+            />
+          );
+        }}
       </Field>
     </Box>
   );
